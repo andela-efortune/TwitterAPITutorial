@@ -10,6 +10,6 @@ const rl = readline.createInterface({
 	});
 
 rl.question('Enter a username ', (answer) => {
-	console.log('Yay! We've got a twitter username: ' answer);
-}	
+	console.log("Yay! We've got a twitter username: ", answer);
+};
 
