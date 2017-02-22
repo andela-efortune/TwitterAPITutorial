@@ -9,7 +9,7 @@ const rl = readline.createInterface({
        output: process.stdout
     });
 
-rl.question('Enter a username ', (answer) => {
+rl.question('Enter a username: ', (answer) => {
     console.log(`Yay! We've got a twitter username: ${answer}`);
     rl.close();
 });
