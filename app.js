@@ -22,7 +22,31 @@ const rl = readline.createInterface({
        output: process.stdout
     });
 
-rl.question('Enter a username: ', (answer) => {
-    console.log(`Yay! We've got a twitter username: ${answer}`);
-    rl.close();
+rl.question('Enter a twitter username: ', (username) => {
+  /**
+   * We make a GET request to fetch tweets of the user whose
+   * username is supplied.
+   * The get method of tweetClient takes 3 arguements, first,
+   * the endpoint, second an object of options such as
+   * the user's screen_name, count(the num of tweets to be returned)
+   * and the last arguement is a callback function that returns an Error
+   * or the results (ie tweets)
+   **/
+  tweetClient.get('statuses/user_timeline',
+    { screen_name: username, count: 2 },
+    (err, tweets) => {
+      console.log(`Below are tweets from the ${username}`);
+      if (!err) {
+        tweets.forEach((tweet) => {
+          console.log('--------------------------------');
+          console.log(`Tweet: ${tweet.text}`);
+          console.log(`Date: ${tweet.created_at}`);
+          console.log(`By: ${tweet.user.name}`);
+          console.log('--------------------------------');
+        });
+      } else {
+        console.log(err);
+      }
+    });
+  rl.close();
 });
