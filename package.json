@@ -9,8 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
     "dotenv": "^4.0.0",
-    "request": "^2.79.0"
+    "twitter": "^1.7.0"
   }
 }
